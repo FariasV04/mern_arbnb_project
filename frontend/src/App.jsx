@@ -1,10 +1,23 @@
 import { useState } from "react";
 import Header from "./components/Header";
+import Home from "./pages/home";
+import Login from "./pages/login";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
 
-  return <Header />;
+  return (
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
