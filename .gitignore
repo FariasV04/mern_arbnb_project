@@ -26,3 +26,4 @@ vite.config.js
 eslint.config.js
 *.json
 tailwind.config.js
+.env
