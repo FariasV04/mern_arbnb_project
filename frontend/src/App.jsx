@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import Home from "./pages/home";
-import Login from "./pages/login";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {

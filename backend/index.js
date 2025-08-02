@@ -1,14 +1,19 @@
+// Importações
 import express, { json } from "express"
 import "dotenv/config"
 import { connectdb } from "./config/db.js"
 import User from "./models/User.js"
 
-
+// app recebe a função express
 const app = express()
+
+// importação da porta da variavel de ambiente pelo dotenv
 const {PORT} = process.env
 
+// midleware
+app.use(express.json())
 
-
+// rota Read
 app.get("/users", async (req, res) => {
      connectdb()
 try {
@@ -17,10 +22,9 @@ try {
 } catch (error) {
      res.status(404).json(error)
 }
-
 })
 
-
+// rota create
 app.post("/users", async (req,res)  => {
      connectdb()
 
@@ -35,8 +39,10 @@ try {
 } catch (error) {
      res.status(500).json(error)
 }
-console.log(`O Servidor está rodando na porta ${PORT}`)
 })
 
+
+// escutando a porta
 app.listen(PORT, () =>{
+     console.log(`O Servidor está rodando na porta ${PORT}`)
 })
